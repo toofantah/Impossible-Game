@@ -9,17 +9,29 @@ public class Player : MonoBehaviour
     private bool dirRight = true;
     public Animator animator;
     private bool isWinnig;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
         isWinnig = false;
+        isDead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (isDead)
+        {
+            Dead();
+        }
+        else
+        {
+            Movement();
+            Fall();
+
+        }
+        
     }
 
     void Movement()
@@ -63,15 +75,38 @@ public class Player : MonoBehaviour
        
     }
 
+    void Fall()
+    {
+        if(transform.position.y < -4)
+        {
+            isDead = true;
+            
+        }
+    }
+    void Dead()
+    {
+        
+        animator.SetFloat("Speed", 0f);
+        animator.SetFloat("Horizontal", 0f);
+        _speed = 0;
+        animator.SetBool("Dead", true);
+        FindObjectOfType<GameManager>().EndGame();
+        FindObjectOfType<CameraMovement>().isDead = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Collectables"))
         {
             Destroy(GameObject.FindWithTag("Collectables"));
+            Debug.Log("You Win!");
+            isWinnig = true;
+        } else if (collision.CompareTag("Traps"))
+        {
+            
+            isDead = true;
         }
-
-        isWinnig = true;
-        Debug.Log("You Win!");
+        
     }
   
 }
