@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5952880991642165103}
   - component: {fileID: 5952880991642165097}
   - component: {fileID: 5952880991642165096}
+  - component: {fileID: 1166147094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -44,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 5952880991642165101}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 00e677553864bd744ad333a025bea10a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b6af39bc40a6444690e33e918d8a120, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -125,7 +126,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5952880991642165096
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,3 +153,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.9884815, y: 14.73629}
   m_EdgeRadius: 0
+--- !u!114 &1166147094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952880991642165101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201617fa5d81902479c46eb97209a15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2.5
+  animator: {fileID: 5952880991642165100}
