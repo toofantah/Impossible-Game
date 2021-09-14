@@ -10,6 +10,14 @@ public class Player : MonoBehaviour
     public Animator animator;
     private bool isWinnig;
     private bool isDead;
+    [SerializeField]
+    private bool isGrounded = true;
+    public CapsuleCollider2D collider;
+    public GameObject groundCheck;
+    public float groundDistnace = 0.5f;
+    public LayerMask groundMask;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +29,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (isDead)
         {
             Dead();
@@ -70,11 +80,44 @@ public class Player : MonoBehaviour
             animator.SetFloat("Horizontal", 1f);
         }
         transform.Translate(Vector2.right * _speed * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Space) )
+        {
+            
+            Jump();
+           
+        }
+        
         
 
        
     }
 
+
+    void Jump()
+    {
+        
+        if (isGrounded)
+        {
+            animator.SetBool("Jump", true);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+            isGrounded = false;
+
+            StartCoroutine(OnLanding());
+        }
+       
+       
+       
+    }
+
+    IEnumerator OnLanding()
+    {
+        
+        yield return new WaitForSeconds(1);
+        animator.SetBool("Jump", false);
+        isGrounded = true;
+    }
+    
     void Fall()
     {
         if(transform.position.y < -4)
@@ -108,5 +151,7 @@ public class Player : MonoBehaviour
         }
         
     }
+
+   
   
 }
