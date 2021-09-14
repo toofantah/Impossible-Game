@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
     IEnumerator OnLanding()
     {
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.8f);
         animator.SetBool("Jump", false);
         isGrounded = true;
     }
