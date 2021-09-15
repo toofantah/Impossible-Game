@@ -2,6 +2,8 @@
 
 ### Introductions/ Description
 A 2D platformer game made in Unity:
+- C# Scripting
+- Visual Scripting
 
 # Objective #1:
 -Scene Created and level Designed by 2D Art Sprites.
