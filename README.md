@@ -52,7 +52,7 @@ https://user-images.githubusercontent.com/50558401/133179032-6100847a-ef3d-40b9-
 
 ## About the Assignment (developement)
 - ***Project starting dates: 13/09/2021***
-- ***Project ending dates: ??/09/2021***
+- ***Project ending dates: /09/2021***
 - ***Made by: Toofan Tahmouresi***
 - ***Trello link: https://trello.com/b/yJsfQ85Vp9v/#***
 
